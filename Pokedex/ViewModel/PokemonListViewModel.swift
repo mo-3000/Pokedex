@@ -24,7 +24,7 @@ class PokemonListViewModel {
             completion(nil)
             return
         }
-        ImageLoader.shared.loadImage(from: imageUrl) { image in
+        imageLoader.loadImage(from: imageUrl) { image in
             DispatchQueue.main.async {
                 completion(image)
             }
