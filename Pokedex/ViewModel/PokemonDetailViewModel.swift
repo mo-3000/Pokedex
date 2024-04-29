@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 
 class PokemonDetailViewModel {
+    var imageLoader: ImageLoader
     @Published var pokemon: PokemonDetail?
     @Published var error: Error?
     
-    init(pokemon: PokemonDetail) {
+    init(pokemon: PokemonDetail, imageLoader: ImageLoader = .shared) {
         self.pokemon = pokemon
+        self.imageLoader = imageLoader
     }
     
     func loadImage(completion: @escaping (UIImage?) -> Void) {
@@ -21,7 +23,7 @@ class PokemonDetailViewModel {
             completion(nil)
             return
         }
-        ImageLoader.shared.loadImage(from: imageUrl) { image in
+        imageLoader.loadImage(from: imageUrl) { image in
             DispatchQueue.main.async {
                 completion(image)
             }
