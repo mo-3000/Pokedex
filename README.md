@@ -41,6 +41,10 @@ The application is structured around the Model-View-ViewModel (MVVM) architectur
 
 Networking is handled through `APIService`, which uses `URLSession` for all HTTP requests. Responses are parsed directly into Codable structs to minimize parsing errors and streamline data handling.
 
+### Reactive Programming
+
+Reactive programming is utilised in the application using the Combine framework, which allows for the handling of asynchronous events by combining event-processing operators. This approach enhances the responsiveness and interactivity of the application.
+
 ### Dependency Injection
 
 Dependency injection is used extensively to decouple components and enhance testability, particularly within view models which require instances of `APIService` and `ImageLoader`.
